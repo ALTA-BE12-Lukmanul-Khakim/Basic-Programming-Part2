@@ -2,10 +2,49 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
 )
 
+func PrimeNumber(nilai int) bool {
+	var hasil bool
+	hitung := 0
+	for i := 1; i < nilai; i++ {
+		if nilai%i == 0 {
+			hitung++
+		}
+		if hitung >= 2 {
+			hasil = false
+		} else {
+			hasil = true
+		}
+	}
+	return hasil
+}
+
 func FullPrima(n int) bool {
-	// write your code
+	var (
+		res  bool = true
+		res2 bool = true
+		set  string
+	)
+
+	res2 = PrimeNumber(n)
+
+	if res2 {
+		set = strconv.Itoa(n)         //konversi angka ke string
+		sli := strings.Split(set, "") //proses split string
+
+		for i := 0; i < len(sli); i++ {
+			angka, _ := strconv.Atoi(sli[i]) //pengembalian angka
+
+			if !PrimeNumber(angka) {
+				return false
+			}
+
+		}
+	}
+	return res
 }
 
 func main() {

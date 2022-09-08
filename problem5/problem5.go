@@ -3,7 +3,12 @@ package main
 import "fmt"
 
 func Pangkat(base, pangkat int) int {
-	// your code here
+	hasil := base
+	for i := 0; i <= pangkat-2; i++ {
+
+		hasil *= base
+	}
+	return hasil
 }
 
 func main() {

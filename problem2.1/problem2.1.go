@@ -2,12 +2,18 @@ package main
 
 import "fmt"
 
-func FaktorBilangan(n int) string {
-	// your code here
+func FaktorBilangan(nilai int) string {
+	var res string
+	for i := 1; i <= nilai; i++ {
+		if nilai%i == 0 {
+			res += fmt.Sprintln(i)
+		}
+	}
+	return res
 }
 
 func main() {
-	var number int
-	fmt.Scanf("%d", &number)
-	fmt.Println(FaktorBilangan(number))
+	var nilai int
+	fmt.Scanf("%d", &nilai)
+	fmt.Println(FaktorBilangan(nilai))
 }
